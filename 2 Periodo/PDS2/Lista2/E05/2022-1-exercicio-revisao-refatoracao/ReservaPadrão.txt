@@ -1,0 +1,81 @@
+c
+2
+Ana Maria Rodrigues Lopes
+Fernanda Silva Santos
+a
+8
+Bobby
+13
+Ursidae
+0
+Ana Maria Rodrigues Lopes
+Jorge
+1
+Ursidae
+0
+Ana Maria Rodrigues Lopes
+Bonina
+7
+Herpestidae
+0
+Fernanda Silva Santos
+Felício
+3
+Ursidae
+0
+Ana Maria Rodrigues Lopes
+Tony
+9
+Ursidae
+1
+Urso Pardo
+Ana Maria Rodrigues Lopes
+Wanda
+10
+Ursidae
+1
+Urso Polar
+Ana Maria Rodrigues Lopes
+Catita
+2
+Herpestidae
+1
+Suricato
+Fernanda Silva Santos
+Carolina
+2
+Herpestidae
+1
+Suricato
+Fernanda Silva Santos
+l
+7
+Bobby
+Jorge
+Bonina
+Felício
+Tony
+Wanda
+Catita
+r
+4
+Bobby
+2
+só quis comer 2 porções de peixes hoje
+Catita
+1
+comeu direitinho
+Carolina
+3
+estava com um apetite e tanto
+Tony
+10
+comeu um pouco da comida do Bobby
+t
+4
+Bobby
+Catita
+Carolina
+Tony
+p
+q

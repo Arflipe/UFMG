@@ -1,0 +1,32 @@
+- O arquivo foi feito para ter uma variável ou comando lido por linha.
+- Existem 7 comandos:
+	"c": Adicionar cuidadores:
+		1- Inserir número de cuidadores a serem adicionados
+		2- Para cada cuidador:
+			1- Inserir nome do cuidador
+	"a": Adicionar animais:
+		1- Inserir número de animais a serem adicionados
+		2- Para cada animal:
+			1- Inserir nome do animal
+			2- Inserir idade do animal
+			3- Inserir familia do animal
+			4- Inserir uma variavel booleana (0 para falso, 1 para verdadeiro), indicando se o animal tem entrada para a espécie.                                         
+				Se valor da variável for 1:
+					-Inserir espécie do animal
+			5- Inserir nome do cuidador
+	"l": Listar animais:
+		1- Inserir número de animais a serem listados
+		2- Para cada animal:
+			1- Inserir nome do animal a ser listado (será listado na ordem inserida)
+	"r": Alimentar animais:
+		1- Inserir número de animais a serem alimentados
+		2- Para cada animal:
+			1- Inserir nome do animal a ser alimentado
+			2- Inserir número de porções comdas pelo animal
+			3- Inserir descrição da refeição do animal
+	"t": Exibir relatório das alimentações:
+		1- Inserir o número de animais a serem incluidos no relatório
+		2- Para cada animal:
+			1- Inserir o nome do animal a ser incluido no relatório (será listado na ordem inserida)
+	"p": Exibir relatório dos Kgs de comida consumidos
+	"q": Encerrar programa

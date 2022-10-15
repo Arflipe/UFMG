@@ -1,0 +1,6 @@
+*.exe
+*.json
+debug
+Reserva
+*.o
+*.log
