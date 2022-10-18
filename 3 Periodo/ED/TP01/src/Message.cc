@@ -14,10 +14,10 @@ string Message::getContent(){
 	return content;
 }
 
-void Message::setNextMessage(Message* next){
-	this->nextMessage = next;
-}
-
 Message* Message::getNextMessage(){
 	return nextMessage;
+}
+
+void Message::setNextMessage(Message* next){
+	this->nextMessage = next;
 }

@@ -15,8 +15,8 @@ class Server{
 	void manage(ifstream& input);
 	void addUser(int ID);
 	void removeUser(int ID);
-	void sendMail(ifstream& input, int ID);
-	void readMail(int ID);
+	void sendMailTo(ifstream& input, int ID);
+	void readMailFrom(int ID);
 };
 
 #endif

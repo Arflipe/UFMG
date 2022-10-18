@@ -19,6 +19,10 @@ Inbox::~Inbox(){
 	}
 }
 
+int Inbox::getSize(){
+	return size;
+}
+
 void Inbox::addMessage(Message* newMessage){
 	if(size){
 		if(firstMessage->getPriority() >= newMessage->getPriority()){
@@ -62,8 +66,4 @@ string Inbox::readFirstMail(){
 	delete aux;
 	size--;
 	return content;
-}
-
-int Inbox::getSize(){
-	return size;
 }

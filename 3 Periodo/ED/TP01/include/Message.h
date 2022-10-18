@@ -17,8 +17,8 @@ class Message{
 	Message(int priority, string content);
 	int getPriority();
 	string getContent();
-	void setNextMessage(Message* next);
 	Message* getNextMessage();
+	void setNextMessage(Message* next);
 };
 
 #endif

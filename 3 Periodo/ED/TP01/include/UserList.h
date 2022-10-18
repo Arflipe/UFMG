@@ -3,7 +3,7 @@
 
 #include "User.h"
 
-class UserList /* : public LinkedList */{
+class UserList{
 	private:
 	User* firstUser;
 	User* lastUser;

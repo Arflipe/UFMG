@@ -4,7 +4,7 @@
 // #include "LinkedList.h"
 #include "Message.h"
 
-class Inbox /* : public LinkedList */{
+class Inbox{
 	private:
 	Message* firstMessage;
 	Message* lastMessage;
@@ -14,9 +14,9 @@ class Inbox /* : public LinkedList */{
 	public:
 	Inbox();
 	~Inbox();
+	int getSize();
 	void addMessage(Message* newMessage);
 	string readFirstMail();
-	int getSize();
 };
 
 #endif

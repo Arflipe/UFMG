@@ -16,10 +16,10 @@ void Server::manage(ifstream& input){
 			removeUser(ID);
 		}
 		else if(command == "ENTREGA"){
-			sendMail(input, ID);
+			sendMailTo(input, ID);
 		}
 		else if(command == "CONSULTA"){
-			readMail(ID);
+			readMailFrom(ID);
 		}
 	}
 }
@@ -46,7 +46,7 @@ void Server::removeUser(int ID){
 	}
 }
 
-void Server::sendMail(ifstream& input, int ID){
+void Server::sendMailTo(ifstream& input, int ID){
 	int priority;
 	input >> priority;
 	erroAssert((priority >= 0) && (priority <= 9), "Prioridade inválida");
@@ -68,7 +68,7 @@ void Server::sendMail(ifstream& input, int ID){
 	}
 }
 
-void Server::readMail(int ID){
+void Server::readMailFrom(int ID){
 	if(list.userExists(ID)){
 		if(list.getUser(ID)->inboxIsEmpty()){
 			cout << "CONSULTA " << ID << ": CAIXA DE ENTRADA VAZIA" << endl;
