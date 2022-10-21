@@ -15,7 +15,8 @@ Inbox::~Inbox(){
 			aux1 = aux2;
 			aux2 = aux1->getNextMessage();
 		}
-		delete lastMessage;
+		delete aux1;
+		delete aux2;
 	}
 }
 
@@ -61,6 +62,9 @@ void Inbox::addMessage(Message* newMessage){
 
 string Inbox::readFirstMail(){
 	Message* aux = firstMessage;
+	if(firstMessage == lastMessage){
+		lastMessage = nullptr;
+	}
 	firstMessage = aux->getNextMessage();
 	string content = aux->getContent();
 	delete aux;

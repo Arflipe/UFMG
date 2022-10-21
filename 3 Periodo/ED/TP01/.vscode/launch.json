@@ -8,7 +8,7 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "/home/flipe/Code/3 Periodo/ED/TP01/bin/debug.out",
+			"program": "/home/flipe/UFMG/3 Periodo/ED/TP01/bin/debug.out",
 			"args": [
 				"-i",
 				"extra_input_6",

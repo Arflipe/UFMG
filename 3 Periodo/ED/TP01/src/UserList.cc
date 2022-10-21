@@ -15,7 +15,8 @@ UserList::~UserList(){
 			aux1 = aux2;
 			aux2 = aux1->getNextUser();
 		}
-		delete lastUser;
+		delete aux1;
+		delete aux2;
 	}
 }
 
@@ -57,6 +58,9 @@ void UserList::removeUser(int ID){
 		}
 	}
 	else{
+		if(firstUser == lastUser){
+			lastUser = nullptr;
+		}
 		aux = firstUser->getNextUser();
 		delete firstUser;
 		size--;

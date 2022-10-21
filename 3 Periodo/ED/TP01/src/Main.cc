@@ -48,6 +48,6 @@ int main(int argc, char* argv[]) {
 	inputFile.close();
 
 	finalizaMemLog();
-
+	delete[] regNameChar;
 	return 0;
 }
