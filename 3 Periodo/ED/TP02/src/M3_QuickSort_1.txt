@@ -1,0 +1,6 @@
+Median QuickSort
+k = 3
+
+Array Size    Mean Comparisons    Mean Register Copies    Mean Execution Time
+      1000               21628                   15651              0.0015414
+

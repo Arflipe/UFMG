@@ -1,0 +1,5 @@
+Iterative QuickSort
+
+Array Size    Mean Comparisons    Mean Register Copies    Mean Execution Time
+      1000               20799                   10485              0.0009022
+

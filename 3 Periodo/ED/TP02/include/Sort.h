@@ -10,6 +10,6 @@
 using namespace std;
 #define SORTING_TYPES 5
 
-double* Sort(int size, int type, int seed, int extra, ofstream& outputFile);
+double* Sort(int size, int type, int seed, int extra);
 
 #endif

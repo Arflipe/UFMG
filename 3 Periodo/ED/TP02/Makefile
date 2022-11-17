@@ -21,7 +21,7 @@
 
 # cc and flags
 CC = g++
-CXXFLAGS = -std=c++11 -g -Wall -pg
+CXXFLAGS = -std=c++11 -g -Wall #-pg
 
 # folders
 INCLUDE_FOLDER = ./include/
@@ -45,4 +45,7 @@ clean:
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLDER)* *.pgm *.out *.gpdat *.eps *.gp
 
 run:
-	./bin/run.out -v 1 -s 10 -i Inputs/Input.txt -o Outputs/RQuickSort
+	./bin/run.out
+
+valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all -s ./bin/run.out -v 2

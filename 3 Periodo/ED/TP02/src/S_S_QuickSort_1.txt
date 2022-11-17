@@ -1,0 +1,5 @@
+Smart Stack QuickSort
+
+Array Size    Mean Comparisons    Mean Register Copies    Mean Execution Time
+      1000               21688                   10485              0.0010032
+

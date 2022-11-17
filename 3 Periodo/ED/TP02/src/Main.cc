@@ -73,14 +73,20 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	inputFile.open(inputName); // Arquivo de texto a ser lido
-	erroAssert(inputFile.is_open(), "Arquivo a ser lido não encontrado");
-
 	char logName[] = "log.out";
 	iniciaMemLog(logName);
 	ativaMemLog();
 
-	int size;
+	inputFile.open(inputName); // Arquivo de texto a ser lido
+	erroAssert(inputFile.is_open(), "Arquivo a ser lido não encontrado");
+	int n;
+	inputFile >> n;
+	int size[n];
+	for(int i = 0; i < n; i++){
+		inputFile >> size[i];
+	}
+
+	inputFile.close();
 	if((type > 0) && (type <= SORTING_TYPES)){
 		extra = getExtra(type, k, m);
 
@@ -90,9 +96,10 @@ int main(int argc, char* argv[]) {
 		outputFile.open(outputName); // Arquivo de texto a ser criado
 		fHeader(type, extra, outputFile);
 
-		while(inputFile >> size){
-			// double* meanValue = Sort(size, type, seed, extra);
-			// fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
+		for(int i = 0; i < n; i++){
+			double* meanValue = Sort(size[i], type, seed, extra);
+			fBody(size[i], meanValue[0], meanValue[1], meanValue[2], outputFile);
+			delete[] meanValue;
 		}
 
 		outputFile.close();
@@ -115,21 +122,17 @@ int main(int argc, char* argv[]) {
 			
 			fHeader(type, extra, outputFile);
 
-			while(inputFile >> size){
-				double* meanValue = Sort(size, type, seed, extra, outputFile);
-				fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
+			for(int i = 0; i < n; i++){
+				double* meanValue = Sort(size[i], type, seed, extra);
+				fBody(size[i], meanValue[0], meanValue[1], meanValue[2], outputFile);
+				delete[] meanValue;
 			}
 
 			outputFile << endl;
 
 			outputFile.close();
-			
-			inputFile.clear();
-			inputFile.seekg(0);
 		}
 	}
-
-	inputFile.close();
 
 	finalizaMemLog();
 	return 0;
