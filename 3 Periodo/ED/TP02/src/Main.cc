@@ -3,14 +3,32 @@
 #include "memlog.h"
 #include "msgassert.h"
 
+#include "Default.h"
 #include "File.h"
 #include "Mean.h"
-#include "RandKeys.h"
+#include "RandArray.h"
 #include "QuickSort.h"
 #include "Timer.h"
+#include "Sort.h"
 
 static bool endWith(std::string& name, std::string extension){
 	return name.size() >= extension.size() && 0 == name.compare(name.size()-extension.size(), extension.size(), extension);
+}
+
+// Se for o Selection QuickSort ou o Median QuickSort, atualizar a variável extra para passar como parâmetro posteriormente
+int getExtra(int type, int k, int m){
+	int extra;
+	switch (type){
+	case 2:
+		extra = k;
+		break;
+	case 3:
+		extra = m;
+		break;
+	default:
+		break;
+	}
+	return extra;
 }
 
 int main(int argc, char* argv[]) {
@@ -18,11 +36,11 @@ int main(int argc, char* argv[]) {
 	ofstream outputFile;
 	string inputName = "input.txt";
 	string outputName;
-	int seed = 1;
-	int type = 1;
+	int type = 0;
 	int k = 3;
 	int m = 10;
-	int extra = 0; // Para passar o k do Median ou o m do Selection para a função quickSort()
+	int seed = 1;
+	int extra; // Para passar o k do Median ou o m do Selection para a função quickSort()
 	int opt;
 	while((opt = getopt(argc, argv, "v:k:m:s:i:o:")) != -1){
 		switch(opt){
@@ -55,60 +73,63 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
-	if(outputName.empty()){
-		outputName = "QuickSort_" + to_string(type) + "_" + to_string(seed) + ".txt";
-	}
-
-	// Se for o Selection QuickSort ou o Median QuickSort, atualizar a variável extra para passar como parâmetro posteriormente
-	switch (type){
-	case 2:
-		extra = k;
-		break;
-	case 3:
-		extra = m;
-		break;
-	default:
-		break;
-	}
+	inputFile.open(inputName); // Arquivo de texto a ser lido
+	erroAssert(inputFile.is_open(), "Arquivo a ser lido não encontrado");
 
 	char logName[] = "log.out";
 	iniciaMemLog(logName);
 	ativaMemLog();
 
-	inputFile.open(inputName); // Arquivo de texto a ser lido
-	erroAssert(inputFile.is_open(), "Arquivo a ser lido não encontrado");
-	outputFile.open(outputName); // Arquivo de texto a ser criado
-
-	fHeader(type, extra, outputFile);
-
 	int size;
-	while(inputFile >> size){
-		double compsArray[5];
-		double regCopiesArray[5];
-		double timeArray[5];
-		for(int i = 0; i < 5; i++){
-			int comps = 0;
-			int regCopies = 0;
-			double time;
-			Register* r = new Register[size];
-			randKeys(r, size, seed);
-			time = Timer(); // Tempo de início
-			quickSort(r, size, type, extra, &comps, &regCopies);
-			time = Timer() - time; // Tempo final = tempo de fim - tempo de início
-			seed++; // Não executar 5 vezes com a mesma seed
-			compsArray[i] = comps;
-			regCopiesArray[i] = regCopies;
-			timeArray[i] = time;
-			delete[] r;
+	if((type > 0) && (type <= SORTING_TYPES)){
+		extra = getExtra(type, k, m);
+
+		if(outputName.empty()){
+			outputName = defaultOutputName(type, extra, seed);
 		}
-		int meanComps = getMean(compsArray, 5);
-		int meanRegCopies = getMean(regCopiesArray, 5);
-		double meanTime = getMean(timeArray, 5);
-		fBody(size, meanComps, meanRegCopies, meanTime, outputFile);
+		outputFile.open(outputName); // Arquivo de texto a ser criado
+		fHeader(type, extra, outputFile);
+
+		while(inputFile >> size){
+			double* meanValue = Sort(size, type, seed, extra);
+			fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
+		}
+
+		outputFile.close();
+	}
+	else{
+		for(int i = 1; i <= SORTING_TYPES; i++){
+			extra = getExtra(i, k, m);
+
+			string currentOutputName = outputName;
+			if(currentOutputName.empty()){
+				currentOutputName = defaultOutputName(i, extra, seed);
+				outputFile.open(currentOutputName); // Arquivo de texto a ser criado
+			}
+			else if(i == 1){
+				outputFile.open(currentOutputName); // Arquivo de texto a ser criado
+			}
+			else{
+				outputFile.open(currentOutputName, ios_base::app); // Arquivo de texto a ser criado
+			}
+			
+			fHeader(i, extra, outputFile);
+
+			while(inputFile >> size){
+				double* meanValue = Sort(size, i, seed, extra);
+				fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
+			}
+
+			outputFile << endl;
+
+			outputFile.close();
+			
+			inputFile.clear();
+			inputFile.seekg(0);
+		}
 	}
 
 	inputFile.close();
-	outputFile.close();
 
 	finalizaMemLog();
 	return 0;
