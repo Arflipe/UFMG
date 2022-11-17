@@ -4,6 +4,6 @@
 #include <iostream>
 #include "Register.h"
 
-void randKeys(Register* r, int size, uint seed);
+void randArray(Register* r, int size, uint seed);
 
 #endif
