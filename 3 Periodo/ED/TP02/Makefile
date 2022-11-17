@@ -32,7 +32,6 @@ SRC_FOLDER = ./src/
 # all sources, objs, and header files
 MAIN = Main
 TARGET = run.out
-# TARGET = run
 SRC = $(wildcard $(SRC_FOLDER)*.cc)
 OBJ = $(patsubst $(SRC_FOLDER)%.cc, $(OBJ_FOLDER)%.o, $(SRC))
 
@@ -44,3 +43,6 @@ all: $(OBJ)
 
 clean:
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLDER)* *.pgm *.out *.gpdat *.eps *.gp
+
+run:
+	./bin/run.out -v 1 -s 10 -i Inputs/Input.txt -o Outputs/RQuickSort
