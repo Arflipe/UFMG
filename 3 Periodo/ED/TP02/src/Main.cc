@@ -16,8 +16,12 @@ static bool endWith(std::string& name, std::string extension){
 int main(int argc, char* argv[]) {
 	ifstream inputFile;
 	ofstream outputFile;
-	string inputName, outputName, regName;
-	int seed, type, k, m;
+	string inputName = "input.txt";
+	string outputName;
+	int seed = 1;
+	int type = 1;
+	int k = 3;
+	int m = 10;
 	int extra = 0; // Para passar o k do Median ou o m do Selection para a função quickSort()
 	int opt;
 	while((opt = getopt(argc, argv, "v:k:m:s:i:o:")) != -1){
@@ -49,6 +53,10 @@ int main(int argc, char* argv[]) {
 		default:
 			break;
 		}
+	}
+
+	if(outputName.empty()){
+		outputName = "QuickSort_" + to_string(type) + "_" + to_string(seed) + ".txt";
 	}
 
 	// Se for o Selection QuickSort ou o Median QuickSort, atualizar a variável extra para passar como parâmetro posteriormente
