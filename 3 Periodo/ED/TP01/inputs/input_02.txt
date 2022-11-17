@@ -1,0 +1,200 @@
+CADASTRA 24
+CADASTRA 23
+REMOVE 19
+CONSULTA 20
+CADASTRA 2
+CONSULTA 14
+ENTREGA 28 0 hardhanded? FIM
+ENTREGA 13 0 desmid... FIM
+CADASTRA 19
+CADASTRA 20
+ENTREGA 15 2 sideways... FIM
+CADASTRA 25
+CONSULTA 6
+CADASTRA 5
+REMOVE 9
+CADASTRA 5
+CONSULTA 21
+ENTREGA 12 0 setiparous nocuous! FIM
+ENTREGA 23 3 preissue nicking? FIM
+ENTREGA 5 0 bines doley! FIM
+ENTREGA 5 0 shoveler! FIM
+CADASTRA 18
+CADASTRA 19
+REMOVE 11
+CADASTRA 21
+CADASTRA 1
+ENTREGA 29 1 molters. FIM
+CONSULTA 17
+CADASTRA 23
+ENTREGA 23 0 tabularize. FIM
+REMOVE 12
+CONSULTA 16
+CONSULTA 26
+CADASTRA 10
+CONSULTA 23
+ENTREGA 10 3 barbette! FIM
+CADASTRA 28
+ENTREGA 14 1 braceros stanzaed? FIM
+REMOVE 27
+CADASTRA 2
+CADASTRA 5
+CADASTRA 14
+ENTREGA 7 2 catholically birdsnest. FIM
+CADASTRA 13
+CADASTRA 7
+REMOVE 1
+CADASTRA 10
+CADASTRA 1
+ENTREGA 16 2 mottle? FIM
+ENTREGA 4 0 carambola mossier! FIM
+ENTREGA 29 1 amphineurous? FIM
+CONSULTA 10
+CONSULTA 11
+ENTREGA 29 3 polista... FIM
+ENTREGA 26 3 shamus! FIM
+CONSULTA 13
+ENTREGA 25 1 randon. FIM
+ENTREGA 13 2 vialed? FIM
+CONSULTA 12
+ENTREGA 11 2 raygrasses rhagose? FIM
+ENTREGA 12 2 unadventuring menyanthaceae. FIM
+ENTREGA 21 0 chipboard nonseraphic. FIM
+CONSULTA 17
+ENTREGA 29 1 velvetweed? FIM
+CONSULTA 21
+ENTREGA 25 3 deracinate vociferanced. FIM
+ENTREGA 3 0 riles porphyrization! FIM
+ENTREGA 27 3 spurwing... FIM
+ENTREGA 9 2 noncovetously netherwards... FIM
+CONSULTA 27
+ENTREGA 5 3 superingeniously matchmaking. FIM
+ENTREGA 25 3 automatical... FIM
+ENTREGA 21 0 vestlike preterlabent! FIM
+ENTREGA 17 0 hepatopneumonic! FIM
+ENTREGA 29 2 culett sovereignize. FIM
+ENTREGA 29 1 foveole fibrose? FIM
+ENTREGA 12 3 echiurid? FIM
+CONSULTA 3
+CONSULTA 27
+ENTREGA 26 0 fieldman kiluba! FIM
+ENTREGA 29 0 cryptomonadina... FIM
+ENTREGA 18 2 secpar strolling! FIM
+ENTREGA 19 1 encake myopy... FIM
+ENTREGA 5 3 epiphanize! FIM
+ENTREGA 10 3 ninefold? FIM
+ENTREGA 4 2 bermuda. FIM
+ENTREGA 25 2 aluminish oneanother. FIM
+ENTREGA 11 1 dation linaloe... FIM
+ENTREGA 2 1 amboceptor! FIM
+CONSULTA 10
+CONSULTA 5
+CONSULTA 25
+CONSULTA 29
+CADASTRA 1
+ENTREGA 15 1 garcons... FIM
+CONSULTA 24
+CONSULTA 21
+CONSULTA 10
+CONSULTA 7
+CADASTRA 15
+ENTREGA 26 0 extortioners... FIM
+CONSULTA 19
+ENTREGA 17 1 gangliectomy tambor. FIM
+CONSULTA 14
+CONSULTA 4
+CONSULTA 19
+CONSULTA 27
+CADASTRA 5
+ENTREGA 3 0 zoophytological? FIM
+ENTREGA 21 3 organzine? FIM
+ENTREGA 27 1 agnathous! FIM
+ENTREGA 24 2 studiousness unconventionalities... FIM
+ENTREGA 9 0 proalliance. FIM
+ENTREGA 28 2 pipettes stewardship. FIM
+ENTREGA 5 2 nongutturalness! FIM
+ENTREGA 14 3 nonplate... FIM
+CADASTRA 8
+CONSULTA 5
+CONSULTA 26
+ENTREGA 6 2 unpreparation? FIM
+ENTREGA 3 0 nonpaganish. FIM
+CADASTRA 18
+ENTREGA 15 1 acapnias... FIM
+CONSULTA 7
+CONSULTA 27
+CONSULTA 25
+ENTREGA 24 2 overdebilitating clarshech. FIM
+ENTREGA 3 1 unphysically preunderstood. FIM
+CONSULTA 4
+CONSULTA 9
+CONSULTA 18
+ENTREGA 20 2 bobowler! FIM
+ENTREGA 26 1 prepostorship? FIM
+ENTREGA 11 1 essentialized evaporability. FIM
+ENTREGA 18 0 palely wasteweir... FIM
+ENTREGA 18 1 disciplinate subgaping? FIM
+ENTREGA 10 0 coumalin piety. FIM
+ENTREGA 10 3 probes misogamic. FIM
+ENTREGA 11 1 traitorousness noninfallibilist? FIM
+CONSULTA 15
+ENTREGA 15 1 upslip trued... FIM
+ENTREGA 9 0 fargite? FIM
+ENTREGA 8 0 quarion panguingue? FIM
+CONSULTA 7
+CONSULTA 18
+ENTREGA 16 2 projected sphaeralcea? FIM
+CONSULTA 20
+CONSULTA 11
+CONSULTA 14
+ENTREGA 7 3 sportscast dantonist... FIM
+CONSULTA 22
+ENTREGA 7 3 filipina chiffonier? FIM
+CONSULTA 27
+CONSULTA 11
+CONSULTA 19
+CONSULTA 11
+CONSULTA 18
+CONSULTA 21
+CONSULTA 28
+CONSULTA 20
+CONSULTA 15
+CONSULTA 8
+CONSULTA 25
+CONSULTA 16
+REMOVE 7
+ENTREGA 20 3 neckwears betrothal... FIM
+ENTREGA 8 2 nonstaining? FIM
+CONSULTA 28
+CONSULTA 18
+CONSULTA 4
+CONSULTA 6
+ENTREGA 21 3 beheadlined... FIM
+ENTREGA 20 1 redemise? FIM
+CONSULTA 29
+CONSULTA 18
+ENTREGA 2 1 harlock internuclear... FIM
+CONSULTA 28
+ENTREGA 10 3 castra. FIM
+CONSULTA 9
+ENTREGA 20 3 froufrous wanchancy... FIM
+CONSULTA 8
+CONSULTA 20
+CONSULTA 15
+CONSULTA 20
+CONSULTA 23
+CONSULTA 8
+CONSULTA 8
+CONSULTA 22
+CONSULTA 18
+REMOVE 19
+CONSULTA 6
+CONSULTA 21
+CONSULTA 1
+CONSULTA 20
+REMOVE 18
+CONSULTA 19
+CONSULTA 18
+REMOVE 13
+ENTREGA 14 1 interfiles anticapitalists... FIM
+CONSULTA 8
