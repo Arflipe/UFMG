@@ -91,32 +91,32 @@ int main(int argc, char* argv[]) {
 		fHeader(type, extra, outputFile);
 
 		while(inputFile >> size){
-			double* meanValue = Sort(size, type, seed, extra);
-			fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
+			// double* meanValue = Sort(size, type, seed, extra);
+			// fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
 		}
 
 		outputFile.close();
 	}
 	else{
-		for(int i = 1; i <= SORTING_TYPES; i++){
-			extra = getExtra(i, k, m);
+		for(type = 1; type <= SORTING_TYPES; type++){
+			extra = getExtra(type, k, m);
 
 			string currentOutputName = outputName;
 			if(currentOutputName.empty()){
-				currentOutputName = defaultOutputName(i, extra, seed);
+				currentOutputName = defaultOutputName(type, extra, seed);
 				outputFile.open(currentOutputName); // Arquivo de texto a ser criado
 			}
-			else if(i == 1){
+			else if(type == 1){
 				outputFile.open(currentOutputName); // Arquivo de texto a ser criado
 			}
 			else{
 				outputFile.open(currentOutputName, ios_base::app); // Arquivo de texto a ser criado
 			}
 			
-			fHeader(i, extra, outputFile);
+			fHeader(type, extra, outputFile);
 
 			while(inputFile >> size){
-				double* meanValue = Sort(size, i, seed, extra);
+				double* meanValue = Sort(size, type, seed, extra, outputFile);
 				fBody(size, meanValue[0], meanValue[1], meanValue[2], outputFile);
 			}
 

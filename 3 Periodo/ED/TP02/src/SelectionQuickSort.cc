@@ -7,14 +7,14 @@ void selectionOrder(int left, int right, Register* r, int maxSize, int* comps, i
 		selectionOrder(left, j, r, maxSize, comps, regCopies);
 	}
 	else{
-		selectionSort(r, left, (j + 1), comps, regCopies);
+		selectionSort(r, left, j, comps, regCopies);
 	}
 	(*comps)++;
 	if((right - i + 1) > maxSize){
 		selectionOrder(i, right, r, maxSize, comps, regCopies);
 	}
 	else{
-		selectionSort(r, i, (right + 1), comps, regCopies);
+		selectionSort(r, i, right, comps, regCopies);
 	}
 	(*comps)++;
 }

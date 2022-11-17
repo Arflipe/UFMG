@@ -1,6 +1,6 @@
 #include "Sort.h"
 
-double* Sort(int size, int type, int seed, int extra){
+double* Sort(int size, int type, int seed, int extra, ofstream& outputFile){
 	double compsArray[5];
 	double regCopiesArray[5];
 	double timeArray[5];
