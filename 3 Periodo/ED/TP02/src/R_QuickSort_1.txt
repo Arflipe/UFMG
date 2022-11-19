@@ -1,5 +1,0 @@
-Recursive QuickSort
-
-Array Size    Mean Comparisons    Mean Register Copies    Mean Execution Time
-      1000               20798                    8706               0.000637
-

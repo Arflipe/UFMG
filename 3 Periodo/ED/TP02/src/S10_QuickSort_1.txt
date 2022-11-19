@@ -1,6 +1,0 @@
-Selection QuickSort
-m = 10
-
-Array Size    Mean Comparisons    Mean Register Copies    Mean Execution Time
-      1000               17075                    7802              0.0007796
-
