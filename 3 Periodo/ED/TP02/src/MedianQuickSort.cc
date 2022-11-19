@@ -1,6 +1,6 @@
 #include "QuickSort.h"
 
-void medianPartition(int left, int right, int* i, int* j, Register* r, int medianOf, int* comps, int* regCopies){
+void medianPartition(int left, int right, int* i, int* j, Register* r, int medianOf){
 	Register pivot;
 	if(medianOf > (right - left + 1)){
 		medianOf = right - left + 1;
@@ -8,44 +8,40 @@ void medianPartition(int left, int right, int* i, int* j, Register* r, int media
 	Register* auxArray = new Register[medianOf];
 	for(int k = 0; k < medianOf; k++){
 		auxArray[k] = r[left + (k * (right - left + 1) / medianOf)];
-		(*regCopies)++;
+		regCopies++;
 	}
-	selectionSort(auxArray, 0, (medianOf - 1), comps, regCopies);
+	selectionSort(auxArray, 0, (medianOf - 1));
 	*i = left;
 	*j = right;
 	pivot = auxArray[medianOf / 2];
-	(*regCopies)++;
+	regCopies++;
 	do{
 		while(r[*i].getKey() < pivot.getKey()){
 			(*i)++;
-			(*comps)++;
+			keyComps++;
 		}
-		(*comps)++; //Quando condição for falsa
+		keyComps++; //Quando condição for falsa
 		while(r[*j].getKey() > pivot.getKey()){
 			(*j)--;
-			(*comps)++;
+			keyComps++;
 		}
-		(*comps)++; //Quando condição for falsa
+		keyComps++; //Quando condição for falsa
 		if(*i <= *j){
 			swap(r, *i, *j);
-			(*regCopies) += 3; // 3 Cópias no swap
 			(*i)++;
 			(*j)--;
 		}
-		(*comps) += 2; //If de cima e while de baixo
 	} while(*i <= *j);
 	delete[] auxArray;
 }
 
-void medianOrder(int left, int right, Register* r, int medianOf, int* comps, int* regCopies){
+void medianOrder(int left, int right, Register* r, int medianOf){
 	int i, j;
-	medianPartition(left, right, &i, &j, r, medianOf, comps, regCopies);
+	medianPartition(left, right, &i, &j, r, medianOf);
 	if(left < j){
-		medianOrder(left, j, r, medianOf, comps, regCopies);
+		medianOrder(left, j, r, medianOf);
 	}
-	(*comps)++;
 	if(right > i){
-		medianOrder(i, right, r, medianOf, comps, regCopies);
+		medianOrder(i, right, r, medianOf);
 	}
-	(*comps)++;
 }

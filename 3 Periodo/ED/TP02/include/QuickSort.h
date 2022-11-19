@@ -5,29 +5,29 @@
 #include "SelectionSort.h"
 #include "Stack.h"
 
-void quickSort(Register* r, int size, int type, int extra, int* comps, int* regCopies);
-void partition(int left, int right, int* i, int* j, Register* r, int* comps, int* regCopies);
+void quickSort(Register* r, int size, int type, int extra);
+void partition(int left, int right, int* i, int* j, Register* r);
 
 // Recursive QuickSort
 
-void recursiveOrder(int left, int right, Register* r, int* comps, int* regCopies);
+void recursiveOrder(int left, int right, Register* r);
 
 // Median QuickSort
 
-void medianPartition(int left, int right, int* i, int* j, Register* r, int n, int* comps, int* regCopies);
-void medianOrder(int left, int right, Register* r, int medianOf, int* comps, int* regCopies);
+void medianPartition(int left, int right, int* i, int* j, Register* r, int n);
+void medianOrder(int left, int right, Register* r, int medianOf);
 
 // Selection QuickSort
 
-void selectionOrder(int left, int right, Register* r, int maxSize, int* comps, int* regCopies);
+void selectionOrder(int left, int right, Register* r, int maxSize);
 
 // Iterative QuickSort
 
-void iterative(int left, int right, Register* r, int* comps, int* regCopies);
+void iterative(int left, int right, Register* r);
 
 // Smart Stack QuickSort
 
-void smartStack(int left, int right, Register* r, int* comps, int* regCopies);
+void smartStack(int left, int right, Register* r);
 
 
 #endif

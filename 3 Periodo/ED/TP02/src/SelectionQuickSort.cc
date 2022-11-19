@@ -1,20 +1,18 @@
 #include "QuickSort.h"
 
-void selectionOrder(int left, int right, Register* r, int maxSize, int* comps, int* regCopies){
+void selectionOrder(int left, int right, Register* r, int maxSize){
 	int i, j;
-	partition(left, right, &i, &j, r, comps, regCopies);
+	partition(left, right, &i, &j, r);
 	if((j - left + 1) > maxSize){
-		selectionOrder(left, j, r, maxSize, comps, regCopies);
+		selectionOrder(left, j, r, maxSize);
 	}
 	else{
-		selectionSort(r, left, j, comps, regCopies);
+		selectionSort(r, left, j);
 	}
-	(*comps)++;
 	if((right - i + 1) > maxSize){
-		selectionOrder(i, right, r, maxSize, comps, regCopies);
+		selectionOrder(i, right, r, maxSize);
 	}
 	else{
-		selectionSort(r, i, right, comps, regCopies);
+		selectionSort(r, i, right);
 	}
-	(*comps)++;
 }

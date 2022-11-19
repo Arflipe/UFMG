@@ -3,7 +3,7 @@
 
 #include "Register.h"
 
-void mergeSort(Register* r, int left, int right, int* comps, int* regCopies);
+void mergeSort(Register* r, int left, int right);
 void merge(Register* r, int left, int mid, int right);
 
 #endif

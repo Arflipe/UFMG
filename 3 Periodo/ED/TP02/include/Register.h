@@ -1,6 +1,9 @@
 #ifndef REGISTER_H
 #define REGISTER_H
 
+inline int keyComps = 0;
+inline int regCopies = 0;
+
 class Register{
 	private:
 	int key;

@@ -4,6 +4,6 @@
 #include "Register.h"
 #include "Swap.h"
 
-void selectionSort(Register* r, int left, int right, int* comps, int* regCopies);
+void selectionSort(Register* r, int left, int right);
 
 #endif

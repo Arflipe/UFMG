@@ -1,14 +1,12 @@
 #include "QuickSort.h"
 
-void recursiveOrder(int left, int right, Register* r, int* comps, int* regCopies){
+void recursiveOrder(int left, int right, Register* r){
 	int i, j;
-	partition(left, right, &i, &j, r, comps, regCopies);
+	partition(left, right, &i, &j, r);
 	if(left < j){
-		recursiveOrder(left, j, r, comps, regCopies);
+		recursiveOrder(left, j, r);
 	}
-	(*comps)++;
 	if(right > i){
-		recursiveOrder(i, right, r, comps, regCopies);
+		recursiveOrder(i, right, r);
 	}
-	(*comps)++;
 }

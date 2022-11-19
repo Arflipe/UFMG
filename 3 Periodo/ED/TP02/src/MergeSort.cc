@@ -1,10 +1,10 @@
 #include "MergeSort.h"
 
-void mergeSort(Register* r, int left, int right, int* comps, int* regCopies){
+void mergeSort(Register* r, int left, int right){
 	if(left < right){
 		int mid = (left + right) / 2;
-		mergeSort(r, left, mid, comps, regCopies);
-		mergeSort(r, (mid + 1), right, comps, regCopies);
+		mergeSort(r, left, mid);
+		mergeSort(r, (mid + 1), right);
 		merge(r, left, mid, right);
 	}
 }
@@ -16,9 +16,11 @@ void merge(Register* r, int left, int mid, int right){
 	Register* rightArray = new Register[rightArraySize];
 	for(int i = 0; i < leftArraySize; i++){
 		leftArray[i] = r[left + i];
+		regCopies++;
 	}
 	for(int i = 0; i < rightArraySize; i++){
-		rightArray[i] = r[mid + 1 + i];	
+		rightArray[i] = r[mid + 1 + i];
+		regCopies++;
 	}
 	int i = 0;
 	int j = 0;
@@ -26,21 +28,26 @@ void merge(Register* r, int left, int mid, int right){
 	while((i < leftArraySize) && (j < rightArraySize)){
 		if(leftArray[i].getKey() <= rightArray[j].getKey()){
 			r[left + k] = leftArray[i];
+			regCopies++;
 			i++;
 		}
 		else{
 			r[left + k] = rightArray[j];
+			regCopies++;
 			j++;
 		}
+		keyComps++;
 		k++;
 	}
 	while(i < leftArraySize){
 		r[left + k] = leftArray[i];
+		regCopies++;
 		i++;
 		k++;
 	}
 	while(j < rightArraySize){
 		r[left + k] = rightArray[j];
+		regCopies++;
 		j++;
 		k++;
 	}

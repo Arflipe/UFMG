@@ -1,6 +1,6 @@
 #include "SelectionSort.h"
 
-void selectionSort(Register* r, int left, int right, int* comps, int* regCopies){
+void selectionSort(Register* r, int left, int right){
 	int min;
 	for(int i = left; i < right; i++){
 		min = i;
@@ -8,9 +8,8 @@ void selectionSort(Register* r, int left, int right, int* comps, int* regCopies)
 			if(r[j].getKey() < r[min].getKey()){
 				min = j;
 			}
-			(*comps)++;
+			keyComps++;
 		}
 		swap(r, i, min);
-		(*regCopies) += 3;
 	}
 }

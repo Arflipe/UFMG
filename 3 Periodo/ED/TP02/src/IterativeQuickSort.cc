@@ -1,30 +1,30 @@
 #include "QuickSort.h"
 
-void iterative(int left, int right, Register* r, int* comps, int* regCopies){
+void iterative(int left, int right, Register* r){
 	int i, j;
 	Stack* s = new Stack();
 	Node top;
 	top.setLeft(left);
 	top.setRight(right);
 	s->push(top);
-	(*regCopies)++;
+	regCopies++;
 
 	do{
 		if(right > left){
-			partition(left, right, &i, &j, r, comps, regCopies);
+			partition(left, right, &i, &j, r);
 			top.setRight(j);
 			top.setLeft(left);
 			s->push(top);
-			(*regCopies)++;
+			regCopies++;
 			left = i;
 		}
 		else{
 			s->pop(&top);
-			(*regCopies)++;
+			regCopies++;
 			left = top.getLeft();
 			right = top.getRight();
 		}
-		(*comps)++;
+		keyComps++;
 	} while(!s->isEmpty());
 	delete s;
 }

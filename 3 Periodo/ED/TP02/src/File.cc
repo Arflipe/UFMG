@@ -28,8 +28,8 @@ void fHeader(int type, int extra, ofstream& outputFile){
 	outputFile << sortType << endl << endl;
 	outputFile.width(10);
 	outputFile << "Array Size";
-	outputFile.width(20);
-	outputFile << "Mean Comparisons";
+	outputFile.width(24);
+	outputFile << "Mean Key Comparisons";
 	outputFile.width(24);
 	outputFile << "Mean Register Copies";
 	outputFile.width(23);
@@ -40,7 +40,7 @@ void fHeader(int type, int extra, ofstream& outputFile){
 void fBody(int size, int meanComps, int meanRegCopies, double meanTime, ofstream& outputFile){
 	outputFile.width(10);
 	outputFile << size;
-	outputFile.width(20);
+	outputFile.width(24);
 	outputFile << meanComps;
 	outputFile.width(24);
 	outputFile << meanRegCopies;
