@@ -5,10 +5,6 @@
 
 #include "Default.h"
 #include "File.h"
-#include "Mean.h"
-#include "RandArray.h"
-#include "QuickSort.h"
-#include "Timer.h"
 #include "Sort.h"
 
 static bool endWith(std::string& name, std::string extension){
