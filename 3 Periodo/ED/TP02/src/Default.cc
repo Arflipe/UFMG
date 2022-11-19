@@ -18,6 +18,12 @@ string defaultOutputName(int type, int extra, int seed){
 	case 5:
 		outputName = "S_S_QuickSort_";
 		break;
+	case 6:
+		outputName = "MergeSort_";
+		break;
+	case 7:
+		outputName = "HeapSort_";
+		break;
 	}
 	outputName += to_string(seed) + ".txt";
 	return outputName;

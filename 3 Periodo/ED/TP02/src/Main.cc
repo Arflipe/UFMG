@@ -32,6 +32,7 @@ int getExtra(int type, int k, int m){
 }
 
 int main(int argc, char* argv[]) {
+	x++;
 	ifstream inputFile;
 	ofstream outputFile;
 	string inputName = "input.txt";
@@ -133,7 +134,7 @@ int main(int argc, char* argv[]) {
 			outputFile.close();
 		}
 	}
-
+	cout << x;
 	finalizaMemLog();
 	return 0;
 }

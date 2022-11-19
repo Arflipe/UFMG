@@ -11,7 +11,15 @@ double* Sort(int size, int type, int seed, int extra){
 		Register* r = new Register[size];
 		randArray(r, size, seed);
 		time = Timer(); // Tempo de início
-		quickSort(r, size, type, extra, &comps, &regCopies);
+		if(type <= 5){
+			quickSort(r, size, type, extra, &comps, &regCopies);
+		}
+		else if(type == 6){
+			mergeSort(r, 0, (size - 1), &comps, &regCopies);
+		}
+		else{
+			heapSort(r, size, &comps, &regCopies);
+		}
 		time = Timer() - time; // Tempo final = tempo de fim - tempo de início
 		seed++; // Não executar 5 vezes com a mesma seed
 		compsArray[i] = comps;

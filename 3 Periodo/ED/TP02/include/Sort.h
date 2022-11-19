@@ -3,12 +3,12 @@
 
 #include "RandArray.h"
 #include "QuickSort.h"
+#include "MergeSort.h"
+#include "HeapSort.h"
 #include "Timer.h"
 #include "Mean.h"
 
-#include <fstream>
-using namespace std;
-#define SORTING_TYPES 5
+#define SORTING_TYPES 7
 
 double* Sort(int size, int type, int seed, int extra);
 

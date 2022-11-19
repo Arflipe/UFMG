@@ -18,6 +18,12 @@ void fHeader(int type, int extra, ofstream& outputFile){
 	case 5:
 		sortType = "Smart Stack QuickSort";
 		break;
+	case 6:
+		sortType = "MergeSort";
+		break;
+	case 7:
+		sortType = "HeapSort";
+		break;
 	}
 	outputFile << sortType << endl << endl;
 	outputFile.width(10);
