@@ -24,7 +24,6 @@ void iterative(int left, int right, Register* r){
 			left = top.getLeft();
 			right = top.getRight();
 		}
-		keyComps++;
 	} while(!s->isEmpty());
 	delete s;
 }

@@ -24,20 +24,29 @@ void partition(int left, int right, int* i, int* j, Register* r){
 	Register pivot;
 	*i = left;
 	*j = right;
+	LEMEMLOG((long int) &r[(*i + *j) / 2],sizeof(Register), 1);
 	pivot = r[(*i + *j) / 2];
 	regCopies++;
 	do{
 
 		while(r[*i].getKey() < pivot.getKey()){
+			LEMEMLOG((long int) &r[*i],sizeof(Register), 1);
+			LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 			(*i)++;
 			keyComps++;
 		}
 		keyComps++; //Quando condição for falsa
+		LEMEMLOG((long int) &r[*i],sizeof(Register), 1);
+		LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		while(r[*j].getKey() > pivot.getKey()){
+			LEMEMLOG((long int) &r[*j],sizeof(Register), 0);
+			LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 			(*j)--;
 			keyComps++;
 		}
 		keyComps++; //Quando condição for falsa
+		LEMEMLOG((long int) &r[*j],sizeof(Register), 1);
+		LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		if(*i <= *j){
 			swap(r, *i, *j);
 			(*i)++;

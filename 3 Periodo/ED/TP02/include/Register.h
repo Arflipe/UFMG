@@ -1,6 +1,8 @@
 #ifndef REGISTER_H
 #define REGISTER_H
 
+#include "memlog.h"
+
 inline int keyComps = 0;
 inline int regCopies = 0;
 
@@ -12,7 +14,6 @@ class Register{
 
 	public:
 	Register();
-	Register(int key);
 	int getKey();
 	void setKey(int key);
 };

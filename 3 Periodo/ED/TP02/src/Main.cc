@@ -1,13 +1,12 @@
 #include <string.h>
 #include <getopt.h>
-#include "memlog.h"
 #include "msgassert.h"
 
 #include "Default.h"
 #include "File.h"
 #include "Sort.h"
 
-static bool endWith(std::string& name, std::string extension){
+static bool endWith(string& name, string extension){
 	return name.size() >= extension.size() && 0 == name.compare(name.size()-extension.size(), extension.size(), extension);
 }
 
@@ -32,13 +31,14 @@ int main(int argc, char* argv[]) {
 	ofstream outputFile;
 	string inputName = "input.txt";
 	string outputName;
+	bool memReg = false;
 	int type = 0;
 	int k = 3;
-	int m = 10;
+	int m = 100;
 	int seed = 1;
 	int extra; // Para passar o k do Median ou o m do Selection para a função quickSort()
 	int opt;
-	while((opt = getopt(argc, argv, "v:k:m:s:i:o:")) != -1){
+	while((opt = getopt(argc, argv, "v:k:m:s:i:o:l")) != -1){
 		switch(opt){
 		case 'v':
 			type = atoi(optarg);
@@ -64,6 +64,9 @@ int main(int argc, char* argv[]) {
 				outputName += ".txt";
 			}
 			break;
+		case 'l':
+			memReg = true;
+			break;
 		default:
 			break;
 		}
@@ -71,7 +74,12 @@ int main(int argc, char* argv[]) {
 
 	char logName[] = "log.out";
 	iniciaMemLog(logName);
-	ativaMemLog();
+	if(memReg){
+		ativaMemLog();
+	}
+	else{
+		desativaMemLog();
+	}
 
 	inputFile.open(inputName); // Arquivo de texto a ser lido
 	erroAssert(inputFile.is_open(), "Arquivo a ser lido não encontrado");
@@ -93,7 +101,7 @@ int main(int argc, char* argv[]) {
 		fHeader(type, extra, outputFile);
 
 		for(int i = 0; i < n; i++){
-			double* meanValue = Sort(size[i], type, seed, extra);
+			double* meanValue = sort(size[i], type, seed, extra);
 			fBody(size[i], meanValue[0], meanValue[1], meanValue[2], outputFile);
 			delete[] meanValue;
 		}
@@ -119,7 +127,7 @@ int main(int argc, char* argv[]) {
 			fHeader(type, extra, outputFile);
 
 			for(int i = 0; i < n; i++){
-				double* meanValue = Sort(size[i], type, seed, extra);
+				double* meanValue = sort(size[i], type, seed, extra);
 				fBody(size[i], meanValue[0], meanValue[1], meanValue[2], outputFile);
 				delete[] meanValue;
 			}

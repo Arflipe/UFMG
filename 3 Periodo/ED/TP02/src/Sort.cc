@@ -1,6 +1,6 @@
 #include "Sort.h"
 
-double* Sort(int size, int type, int seed, int extra){
+double* sort(int size, int type, int seed, int extra){
 	double keyCompsArray[5];
 	double regCopiesArray[5];
 	double timeArray[5];
@@ -8,6 +8,7 @@ double* Sort(int size, int type, int seed, int extra){
 		keyComps = 0;
 		regCopies = 0;
 		double time;
+		defineFaseMemLog(0);
 		Register* r = new Register[size];
 		randArray(r, size, seed);
 		time = Timer(); // Tempo de início

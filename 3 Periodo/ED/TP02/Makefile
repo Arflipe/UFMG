@@ -21,7 +21,7 @@
 
 # cc and flags
 CC = g++
-CXXFLAGS = -std=c++17 -g -Wall #-pg
+CXXFLAGS = -std=c++17 -g -Wall -pg
 
 # folders
 INCLUDE_FOLDER = ./include/

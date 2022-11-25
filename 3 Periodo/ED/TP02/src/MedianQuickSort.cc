@@ -19,13 +19,21 @@ void medianPartition(int left, int right, int* i, int* j, Register* r, int media
 		while(r[*i].getKey() < pivot.getKey()){
 			(*i)++;
 			keyComps++;
+			LEMEMLOG((long int) &r[*i],sizeof(Register), 1);
+			LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		}
 		keyComps++; //Quando condição for falsa
+		LEMEMLOG((long int) &r[*i],sizeof(Register), 1);
+		LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		while(r[*j].getKey() > pivot.getKey()){
 			(*j)--;
 			keyComps++;
+			LEMEMLOG((long int) &r[*j],sizeof(Register), 1);
+			LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		}
 		keyComps++; //Quando condição for falsa
+		LEMEMLOG((long int) &r[*j],sizeof(Register), 1);
+		LEMEMLOG((long int) &pivot,sizeof(Register), 1);
 		if(*i <= *j){
 			swap(r, *i, *j);
 			(*i)++;

@@ -10,6 +10,6 @@
 
 #define SORTING_TYPES 7
 
-double* Sort(int size, int type, int seed, int extra);
+double* sort(int size, int type, int seed, int extra);
 
 #endif

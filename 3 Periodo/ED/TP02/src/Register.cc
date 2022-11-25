@@ -2,10 +2,6 @@
 
 Register::Register(){}
 
-Register::Register(int key){
-	this->key = key;
-}
-
 int Register::getKey(){
 	return this->key;
 }

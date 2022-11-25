@@ -21,7 +21,7 @@ void heapify(Register* r, int size){
 
 void redo(Register* r, int left, int right){
 	int i = left;
-	int j = 2 * i;
+	int j = 2 * i + 1;
 	Register aux = r[i];
 	regCopies++;
 	while(j <= right){

@@ -24,15 +24,15 @@ void merge(Register* r, int left, int mid, int right){
 	}
 	int i = 0;
 	int j = 0;
-	int k = 0;
+	int k = left;
 	while((i < leftArraySize) && (j < rightArraySize)){
 		if(leftArray[i].getKey() <= rightArray[j].getKey()){
-			r[left + k] = leftArray[i];
+			r[k] = leftArray[i];
 			regCopies++;
 			i++;
 		}
 		else{
-			r[left + k] = rightArray[j];
+			r[k] = rightArray[j];
 			regCopies++;
 			j++;
 		}
@@ -40,13 +40,13 @@ void merge(Register* r, int left, int mid, int right){
 		k++;
 	}
 	while(i < leftArraySize){
-		r[left + k] = leftArray[i];
+		r[k] = leftArray[i];
 		regCopies++;
 		i++;
 		k++;
 	}
 	while(j < rightArraySize){
-		r[left + k] = rightArray[j];
+		r[k] = rightArray[j];
 		regCopies++;
 		j++;
 		k++;
