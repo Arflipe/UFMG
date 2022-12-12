@@ -11,16 +11,22 @@ class AVLDict{
 	AVLDict();
 	void insert(Entry* newEntry);
 	void recursiveInsert(AVLNode* &node, AVLNode* parent, Entry* newEntry);
+	bool searchEntry(string word, string newMeaning, char type);
+	bool recursiveSearch(AVLNode* node, string word, string newMeaning, char type);
 	void remove();
 	void recursiveRemove(AVLNode* &node);
+	void rebalance(AVLNode* node);
+	void print();
+	void recursivePrint(AVLNode* &node);
+
+	void predecessor(AVLNode* node, AVLNode* &r);
 	void balance(AVLNode* node);
 	void refreshHeight(AVLNode* node);
 	int getBalanceFactor(AVLNode* node);
 	int getHeight(AVLNode* node);
 	void rightRotation(AVLNode* node);
 	void leftRotation(AVLNode* node);
-	void grandparentLeft(AVLNode* node);
-	void grandparentRight(AVLNode* node);
+	void grandparentRotate(AVLNode* node);
 };
 
 #endif

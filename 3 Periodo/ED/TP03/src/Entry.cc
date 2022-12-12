@@ -12,7 +12,9 @@ void Entry::includeMeaning(string value){
 
 void Entry::printEntry(){
 	cout << word << " (" << type << ")" << endl;
-	meanings->printMeanings();
+	if(!hasNoMeanings()){
+		meanings->printMeanings();
+	}
 }
 
 bool Entry::hasNoMeanings(){
@@ -21,4 +23,8 @@ bool Entry::hasNoMeanings(){
 
 string Entry::getWord(){
 	return word;
+}
+
+char Entry::getType(){
+	return type;
 }

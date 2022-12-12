@@ -15,6 +15,7 @@ class Entry{
 	void printEntry();
 	bool hasNoMeanings();
 	string getWord();
+	char getType();
 };
 
 #endif

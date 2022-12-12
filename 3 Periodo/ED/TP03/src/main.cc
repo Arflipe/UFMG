@@ -7,7 +7,9 @@ int main(){
 	string line;
 	AVLDict* d = new AVLDict();
 	while(getline(input, line)){
-		line.pop_back();
+		if(line.back() == '\r'){
+			line.pop_back();
+		}
 		char type;
 		string word;
 		string meaning;
@@ -17,12 +19,18 @@ int main(){
 		int end = line.find("]");
 		word = line.substr(start, end - start);
 		start = end + 2;
-		Entry* e = new Entry(word, type);
-		if(start < ((int) line.length() - 1)){
+		if(start < ((int) line.length())){
 			meaning = line.substr(start);
-			e->includeMeaning(meaning);
 		}
-		e->printEntry();
-		d->insert(e);
+		if(!d->searchEntry(word, meaning, type)){
+			Entry* e = new Entry(word, type);
+			if(!meaning.empty()){
+				e->includeMeaning(meaning);
+			}
+			d->insert(e);
+		}
 	}
+	d->print();
+	d->remove();
+	d->print();
 }

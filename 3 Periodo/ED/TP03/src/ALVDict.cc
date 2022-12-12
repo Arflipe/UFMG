@@ -13,8 +13,7 @@ void AVLDict::recursiveInsert(AVLNode* &node, AVLNode* parent, Entry* newEntry){
 		node = new AVLNode(newEntry);
 		if(parent != nullptr){
 			node->parent = parent;
-			refreshHeight(node);
-			balance(parent->parent);
+			balance(node);
 		}
 	}
 	else{
@@ -27,70 +26,153 @@ void AVLDict::recursiveInsert(AVLNode* &node, AVLNode* parent, Entry* newEntry){
 	}
 }
 
+bool AVLDict::searchEntry(string word, string newMeaning, char type){
+	return recursiveSearch(root, word, newMeaning, type);
+}
+
+bool AVLDict::recursiveSearch(AVLNode* node, string word, string newMeaning, char type){
+	if(node == nullptr){
+		return false;
+	}
+	if(node->entry->getWord() == word){
+		if(node->entry->getType() != type){
+			Entry* newEntry = new Entry(word, type);
+			if(!newMeaning.empty()){
+				newEntry->includeMeaning(newMeaning);
+			}
+			if(node->entry->getType() > type){
+				recursiveInsert(node->left, node, newEntry);
+			}
+			else{
+				recursiveInsert(node->right, node, newEntry);
+			}
+
+		}
+		else{
+			if(!newMeaning.empty()){
+				node->entry->includeMeaning(newMeaning);
+			}
+		}
+		return true;
+	}
+	if(node->entry->getWord() > word){
+		return recursiveSearch(node->left, word, newMeaning, type);
+	}
+	else{
+		return recursiveSearch(node->right, word, newMeaning, type);
+	}
+}
+
 void AVLDict::remove(){
 	recursiveRemove(root);
+	rebalance(root);
 }
 
 void AVLDict::recursiveRemove(AVLNode* &node){
 	if(node != nullptr){
 		recursiveRemove(node->left);
 		recursiveRemove(node->right);
-		if(node->left == nullptr){
-			AVLNode* aux = node;
-			node = node->right;
-			delete aux;
-		}
-		else if(node->right == nullptr){
-			AVLNode* aux = node;
-			node = node->left;
-			delete aux;
-		}
-		else{
-			
+		if(!node->entry->hasNoMeanings()){
+			if(node->left == nullptr){
+				AVLNode* aux = node;
+				node = node->right;
+				if(node != nullptr){
+					node->parent = aux->parent;
+				}
+				delete aux;
+			}
+			else if(node->right == nullptr){
+				AVLNode* aux = node;
+				node = node->left;
+				if(node != nullptr){
+					node->parent = aux->parent;
+				}
+				delete aux;
+			}
+			else{
+				predecessor(node, node->left);
+			}
 		}
 	}
 }
 
-void AVLDict::balance(AVLNode* node){
-	int balanceFactor = getBalanceFactor(node);
-	if(balanceFactor < -1){
-		if(getBalanceFactor(node->left) > 0){
-			leftRotation(node->left);
-			grandparentLeft(node->left);
-			rightRotation(node);
-			grandparentLeft(node);
-		}
-		else{
-			rightRotation(node);
-			grandparentLeft(node);
-			node->height = getHeight(node->left) + 1;
-			refreshHeight(node);
-		}
+void AVLDict::rebalance(AVLNode* node){
+	if(node->left == nullptr && node->right == nullptr){
+		balance(node);
 	}
-	else if(balanceFactor > 1){
-		if(getBalanceFactor(node->right) < 0){
-			rightRotation(node->right);
-			grandparentRight(node->right);
-			leftRotation(node);
-			grandparentRight(node);
-		}
-		else{
-			leftRotation(node);
-			grandparentRight(node);
-			node->height = getHeight(node->left) + 1;
-			refreshHeight(node);
-		}
+	if(node->left != nullptr){
+		rebalance(node->left);
 	}
+	if(node->right != nullptr){
+		rebalance(node->right);
+	}
+}
+
+void AVLDict::print(){
+	recursivePrint(root);
+}
+
+void AVLDict::recursivePrint(AVLNode* &node){
 	if(node != nullptr){
-		balance(node->parent);
+		recursivePrint(node->left);
+		node->entry->printEntry();
+		recursivePrint(node->right);
+	}
+}
+
+void AVLDict::predecessor(AVLNode* node, AVLNode* &r){
+	if(r->right != nullptr){
+		predecessor(node, r->right);
+		return;
+	}
+	AVLNode* parent = r->parent;
+	node->entry = r->entry;
+	node = r;
+	r = r->left;
+	if(r != nullptr){
+		r->parent = parent;
+	}
+	delete node;
+}
+
+void AVLDict::balance(AVLNode* node){
+	if(node != nullptr){
+		AVLNode* parent = node->parent;
+		refreshHeight(node);
+		int balanceFactor = getBalanceFactor(node);
+		if(balanceFactor < -1){
+			if(getBalanceFactor(node->left) > 0){
+				leftRotation(node->left);
+				grandparentRotate(node->left);
+				rightRotation(node);
+				grandparentRotate(node);
+			}
+			else{
+				rightRotation(node);
+				grandparentRotate(node);
+			}
+		}
+		else if(balanceFactor > 1){
+			if(getBalanceFactor(node->right) < 0){
+				rightRotation(node->right);
+				grandparentRotate(node->right);
+				leftRotation(node);
+				grandparentRotate(node);
+			}
+			else{
+				leftRotation(node);
+				grandparentRotate(node);
+			}
+		}
+		balance(parent);
 	}
 }
 
 void AVLDict::refreshHeight(AVLNode* node){
+	int leftHeight = getHeight(node->left);
+	int rightHeight = getHeight(node->right);
+	node->height = max(leftHeight, rightHeight) + 1;
 	if(node->parent != nullptr){
-		int leftHeight = getHeight(node->parent->left);
-		int rightHeight = getHeight(node->parent->right);
-		node->parent->height = max(leftHeight, rightHeight) + 1;
 		refreshHeight(node->parent);
 	}
 }
@@ -133,24 +215,18 @@ void AVLDict::leftRotation(AVLNode* node){
 	node->parent = aux;
 }
 
-void AVLDict::grandparentLeft(AVLNode* node){
+void AVLDict::grandparentRotate(AVLNode* node){
 	if(node->parent->parent == nullptr){
 		root = node->parent;
 	}
 	else{
-		node->parent->parent->left = node->parent;
+		if(node->parent->parent->left == node){
+			node->parent->parent->left = node->parent;
+		}
+		else{
+			node->parent->parent->right = node->parent;
+		}
 	}
-	node->height = getHeight(node->left) + 1;
 	refreshHeight(node);
 }
 
-void AVLDict::grandparentRight(AVLNode* node){
-	if(node->parent->parent == nullptr){
-		root = node->parent;
-	}
-	else{
-		node->parent->parent->right = node->parent;
-	}
-	node->height = getHeight(node->right) + 1;
-	refreshHeight(node);
-}
