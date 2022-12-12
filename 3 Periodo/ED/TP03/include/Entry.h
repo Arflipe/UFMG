@@ -14,6 +14,7 @@ class Entry{
 	void includeMeaning(string value);
 	void printEntry();
 	bool hasNoMeanings();
+	string getWord();
 };
 
 #endif

@@ -1,11 +1,13 @@
-#include "Entry.h"
+#include "AVLDict.h"
 #include <fstream>
 
 int main(){
 	ifstream input;
 	input.open("input.txt");
 	string line;
+	AVLDict* d = new AVLDict();
 	while(getline(input, line)){
+		line.pop_back();
 		char type;
 		string word;
 		string meaning;
@@ -21,5 +23,6 @@ int main(){
 			e->includeMeaning(meaning);
 		}
 		e->printEntry();
+		d->insert(e);
 	}
 }

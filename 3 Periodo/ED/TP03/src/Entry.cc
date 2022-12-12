@@ -18,3 +18,7 @@ void Entry::printEntry(){
 bool Entry::hasNoMeanings(){
 	return meanings->isEmpty();
 }
+
+string Entry::getWord(){
+	return word;
+}
