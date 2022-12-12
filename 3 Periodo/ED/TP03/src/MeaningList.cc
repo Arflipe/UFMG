@@ -7,10 +7,7 @@ MeaningList::MeaningList(){
 }
 
 bool MeaningList::isEmpty(){
-	if(this->numMeanings == 0){
-		return true;
-	}
-	return false;
+	return !numMeanings;
 }
 
 void MeaningList::addMeaning(string value){

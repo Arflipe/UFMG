@@ -12,13 +12,13 @@ void Entry::includeMeaning(string value){
 
 void Entry::printEntry(){
 	cout << word << " (" << type << ")" << endl;
-	if(!hasNoMeanings()){
+	if(hasMeanings()){
 		meanings->printMeanings();
 	}
 }
 
-bool Entry::hasNoMeanings(){
-	return meanings->isEmpty();
+bool Entry::hasMeanings(){
+	return !meanings->isEmpty();
 }
 
 string Entry::getWord(){

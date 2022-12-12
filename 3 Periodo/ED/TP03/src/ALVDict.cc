@@ -72,7 +72,7 @@ void AVLDict::recursiveRemove(AVLNode* &node){
 	if(node != nullptr){
 		recursiveRemove(node->left);
 		recursiveRemove(node->right);
-		if(!node->entry->hasNoMeanings()){
+		if(node->entry->hasMeanings()){
 			if(node->left == nullptr){
 				AVLNode* aux = node;
 				node = node->right;

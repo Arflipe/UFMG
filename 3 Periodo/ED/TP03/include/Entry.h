@@ -13,7 +13,7 @@ class Entry{
 	Entry(string word, char type);
 	void includeMeaning(string value);
 	void printEntry();
-	bool hasNoMeanings();
+	bool hasMeanings();
 	string getWord();
 	char getType();
 };
