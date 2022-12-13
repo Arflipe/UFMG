@@ -1,11 +1,11 @@
-#include "AVLDict.h"
+#include "HashDict.h"
 #include <fstream>
 
 int main(){
 	ifstream input;
 	input.open("input.txt");
 	string line;
-	AVLDict* d = new AVLDict();
+	HashDict* d = new HashDict();
 	while(getline(input, line)){
 		if(line.back() == '\r'){
 			line.pop_back();
@@ -22,15 +22,10 @@ int main(){
 		if(start < ((int) line.length())){
 			meaning = line.substr(start);
 		}
-		if(!d->searchEntry(word, meaning, type)){
-			Entry* e = new Entry(word, type);
-			if(!meaning.empty()){
-				e->includeMeaning(meaning);
-			}
-			d->insert(e);
-		}
+		d->insert(word, meaning, type);
 	}
 	d->print();
-	d->remove();
+	int maxCollisions = d->remove();
+	// cout << maxCollisions << endl;
 	d->print();
 }

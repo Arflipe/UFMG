@@ -5,7 +5,7 @@
 
 class HashDict{
 	private:
-	static const int M = 17575;
+	static const int M = 457001;
 	HashList* table;
 
 	public:

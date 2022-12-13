@@ -21,7 +21,7 @@
 
 # cc and flags
 CC = g++
-CXXFLAGS = -std=c++17 -g -Wall -pg
+CXXFLAGS = -std=c++17 -g -Wall 
 
 # folders
 INCLUDE_FOLDER = ./include/
@@ -48,4 +48,4 @@ run:
 	./bin/run.out
 
 valgrind:
-	valgrind --leak-check=full --show-leak-kinds=all -s ./bin/run.out -v 2
+	valgrind --leak-check=full --show-leak-kinds=all -s ./bin/run.out > output.txt
