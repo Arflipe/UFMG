@@ -13,6 +13,7 @@ class AVLNode{
 
 	public:
 	AVLNode(Entry* newEntry);
+	~AVLNode();
 
 	friend class AVLDict;
 };

@@ -7,3 +7,7 @@ AVLNode::AVLNode(Entry* newEntry){
 	this->left = nullptr;
 	this->right = nullptr;
 }
+
+AVLNode::~AVLNode(){
+	delete entry;
+}

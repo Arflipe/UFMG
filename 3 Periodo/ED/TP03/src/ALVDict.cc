@@ -4,8 +4,18 @@ AVLDict::AVLDict(){
 	root = nullptr;
 }
 
-void AVLDict::insert(Entry* newEntry){
-	recursiveInsert(root, nullptr, newEntry);
+AVLDict::~AVLDict(){
+	clean();
+}
+
+void AVLDict::insert(string word, string newMeaning, char type){
+	if(!searchEntry(word, newMeaning, type)){
+		Entry* newEntry = new Entry(word, type);
+		if(!newMeaning.empty()){
+			newEntry->includeMeaning(newMeaning);
+		}
+		recursiveInsert(root, nullptr, newEntry);
+	}
 }
 
 void AVLDict::recursiveInsert(AVLNode* &node, AVLNode* parent, Entry* newEntry){
@@ -65,7 +75,9 @@ bool AVLDict::recursiveSearch(AVLNode* node, string word, string newMeaning, cha
 
 void AVLDict::remove(){
 	recursiveRemove(root);
-	rebalance(root);
+	if(root != nullptr){
+		rebalance(root);
+	}
 }
 
 void AVLDict::recursiveRemove(AVLNode* &node){
@@ -126,12 +138,14 @@ void AVLDict::predecessor(AVLNode* node, AVLNode* &r){
 		return;
 	}
 	AVLNode* parent = r->parent;
+	delete node->entry;
 	node->entry = r->entry;
 	node = r;
 	r = r->left;
 	if(r != nullptr){
 		r->parent = parent;
 	}
+	node->entry = nullptr;
 	delete node;
 }
 
@@ -230,3 +244,15 @@ void AVLDict::grandparentRotate(AVLNode* node){
 	refreshHeight(node);
 }
 
+void AVLDict::clean(){
+	recursiveClean(root);
+	root = nullptr;
+}
+
+void AVLDict::recursiveClean(AVLNode* &node){
+	if(node != nullptr){
+		recursiveClean(node->left);
+		recursiveClean(node->right);
+		delete node;
+	}
+}

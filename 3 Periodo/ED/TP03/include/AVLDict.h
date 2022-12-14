@@ -9,7 +9,8 @@ class AVLDict{
 
 	public:
 	AVLDict();
-	void insert(Entry* newEntry);
+	~AVLDict();
+	void insert(string word, string newMeaning, char type);
 	void recursiveInsert(AVLNode* &node, AVLNode* parent, Entry* newEntry);
 	bool searchEntry(string word, string newMeaning, char type);
 	bool recursiveSearch(AVLNode* node, string word, string newMeaning, char type);
@@ -27,6 +28,9 @@ class AVLDict{
 	void rightRotation(AVLNode* node);
 	void leftRotation(AVLNode* node);
 	void grandparentRotate(AVLNode* node);
+
+	void clean();
+	void recursiveClean(AVLNode* &node);
 };
 
 #endif

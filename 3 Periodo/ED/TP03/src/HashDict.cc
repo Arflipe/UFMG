@@ -1,9 +1,11 @@
 #include "HashDict.h"
 
-#include <cmath>
-
 HashDict::HashDict(){
 	table = new HashList[M];
+}
+
+HashDict::~HashDict(){
+	delete[] table;
 }
 
 void HashDict::insert(string word, string newMeaning, char type){
@@ -17,22 +19,14 @@ void HashDict::insert(string word, string newMeaning, char type){
 	}
 }
 
-int HashDict::remove(){
-	int maxCollisions = 0;
-	// int highColl = 0;
-	for(int i = 0; i <= M; i++){
-		// int coll =  table[i].getSize();
-		// maxCollisions = max(maxCollisions, table[i].getSize());
-		// if(coll >= 7){
-		// 	highColl++;
-		// }
+void HashDict::remove(){
+	for(int i = 0; i < M; i++){
 		table[i].removeEntries();
 	}
-	return maxCollisions;
 }
 
 void HashDict::print(){
-	for(int i = 0; i <= M; i++){
+	for(int i = 0; i < M; i++){
 		table[i].printEntries();
 	}
 }
@@ -44,7 +38,7 @@ int HashDict::hash(string word){
 		hash = firstLetter - 65;
 	}
 	else{
-		for(int i = 0; i < min((int) word.length(), 4); i++){
+		for(int i = 0; i < min((int) word.length(), numLetters); i++){
 			int letterPos = word[i];
 			if(letterPos >= 97){
 				letterPos -= 97;
@@ -52,7 +46,7 @@ int HashDict::hash(string word){
 			else{
 				letterPos -= 65;
 			}
-			hash += pow(26, (3 - i)) * letterPos;
+			hash += pow(26, ((numLetters - 1) - i)) * letterPos;
 		}
 	}
 	return hash;

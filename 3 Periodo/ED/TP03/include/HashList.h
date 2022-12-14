@@ -11,6 +11,7 @@ class HashList{
 
 	public:
 	HashList();
+	~HashList();
 	void insertEntry(Entry* newEntry);
 	void recursiveInsert(HashNode* &node, HashNode* newNode);
 	bool searchEntry(string word, string newMeaning, char type);
@@ -18,7 +19,6 @@ class HashList{
 	void removeEntries();
 	void recursiveRemove(HashNode* &node);
 	void printEntries();
-	// bool notEmpty();
 	int getSize();
 };
 

@@ -3,6 +3,10 @@
 
 #include "Meaning.h"
 #include <iostream>
+#include <fstream>
+
+inline ifstream inputFile;
+inline ofstream outputFile;
 
 class MeaningList{
 	private:
@@ -12,6 +16,7 @@ class MeaningList{
 
 	public:
 	MeaningList();
+	~MeaningList();
 	bool isEmpty();
 	void addMeaning(string value);
 	void printMeanings();

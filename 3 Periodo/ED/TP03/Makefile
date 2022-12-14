@@ -48,4 +48,4 @@ run:
 	./bin/run.out
 
 valgrind:
-	valgrind --leak-check=full --show-leak-kinds=all -s ./bin/run.out > output.txt
+	valgrind --leak-check=full --show-leak-kinds=all -s ./bin/run.out -i inputs/input_06.txt -t h

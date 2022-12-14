@@ -6,12 +6,16 @@ Entry::Entry(string word, char type){
 	meanings = new MeaningList();
 }
 
+Entry::~Entry(){
+	delete meanings;
+}
+
 void Entry::includeMeaning(string value){
 	meanings->addMeaning(value);
 }
 
 void Entry::printEntry(){
-	cout << word << " (" << type << ")" << endl;
+	outputFile << word << " (" << type << ")" << endl;
 	if(hasMeanings()){
 		meanings->printMeanings();
 	}

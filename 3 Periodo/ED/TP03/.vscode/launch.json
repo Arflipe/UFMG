@@ -10,8 +10,10 @@
 			"request": "launch",
 			"program": "/home/flipe/UFMG/3 Periodo/ED/TP03/bin/run.out",
 			"args": [
-				">",
-				"output.txt"
+				"-i",
+				"/home/flipe/UFMG/3 Periodo/ED/TP03/inputs/input_07.txt",
+				"-t",
+				"a"
 			],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",

@@ -6,6 +6,18 @@ HashList::HashList(){
 	lastNode = nullptr;
 }
 
+HashList::~HashList(){
+	if(firstNode != nullptr){
+		HashNode* aux = firstNode->nextNode;
+		while(aux != nullptr){
+			firstNode->nextNode = aux->nextNode;
+			delete aux;
+			aux = firstNode->nextNode;
+		}
+		delete firstNode;
+	}
+}
+
 void HashList::insertEntry(Entry* newEntry){
 	HashNode* aux = new HashNode(newEntry);
 	if(!size){
@@ -108,6 +120,7 @@ void HashList::removeEntries(){
 		HashNode* aux = firstNode;
 		firstNode = firstNode->nextNode;
 		delete aux;
+		size--;
 		if(firstNode == nullptr){
 			return;
 		}
@@ -123,6 +136,7 @@ void HashList::recursiveRemove(HashNode* &node){
 		HashNode* aux = node;
 		node = node->nextNode;
 		delete aux;
+		size--;
 		if(node == nullptr){
 			return;
 		}

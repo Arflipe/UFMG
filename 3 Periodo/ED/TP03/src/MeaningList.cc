@@ -6,6 +6,18 @@ MeaningList::MeaningList(){
 	lastMeaning = nullptr;
 }
 
+MeaningList::~MeaningList(){
+	if(firstMeaning != nullptr){
+		Meaning* aux = firstMeaning->nextMeaning;
+		while(aux != nullptr){
+			firstMeaning->nextMeaning = aux->nextMeaning;
+			delete aux;
+			aux = firstMeaning->nextMeaning;
+		}
+		delete firstMeaning;
+	}
+}
+
 bool MeaningList::isEmpty(){
 	return !numMeanings;
 }
@@ -26,7 +38,7 @@ void MeaningList::addMeaning(string value){
 void MeaningList::printMeanings(){
 	Meaning* current = firstMeaning;
 	for(int i = 1; i <= numMeanings; i++){
-		cout << i << ". " << current->value << endl;
+		outputFile << i << ". " << current->value << endl;
 		current = current->nextMeaning;
 	}
 }

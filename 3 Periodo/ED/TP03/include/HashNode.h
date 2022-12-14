@@ -10,6 +10,7 @@ class HashNode{
 
 	public:
 	HashNode(Entry* entry);
+	~HashNode();
 
 	friend class HashList;
 };
