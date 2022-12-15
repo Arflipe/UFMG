@@ -1,0 +1,18 @@
+USE gym;
+
+DROP TABLE IF EXISTS FichaContem;
+
+DROP TABLE IF EXISTS FichaDeExercicio;
+
+DROP TABLE IF EXISTS Telefone;
+
+DROP TABLE IF EXISTS Ensina;
+
+DROP TABLE IF EXISTS Pagamento;
+
+DROP TABLE IF EXISTS Exercicio;
+
+DROP TABLE IF EXISTS Modalidade;
+
+DROP TABLE IF EXISTS Pessoa;
+
