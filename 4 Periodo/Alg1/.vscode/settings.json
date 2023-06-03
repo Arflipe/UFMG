@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"jupyter": "python",
+		"queue": "cpp",
+		"vector": "cpp",
+		"iostream": "cpp",
+		"string": "cpp",
+		"string_view": "cpp"
+	}
+}
