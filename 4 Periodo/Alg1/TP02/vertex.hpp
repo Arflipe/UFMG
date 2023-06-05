@@ -2,19 +2,17 @@
 #define VERTEX_HPP
 
 #include <list>
-
-using namespace std;
+#include "edge.hpp"
 
 class Vertex{
 	private:
 	int edges;
 	bool visited;
-	list<pair<int, int>> adjacent;
+	list<Edge*> adjacent;
 
 	public:
 	Vertex();
-	void addNewAdjacent(int vertexNum, int flow);
-	void changeFlow(int vertexNum, int adjNum, int flow);
+	~Vertex();
 
 	friend class Graph;
 };

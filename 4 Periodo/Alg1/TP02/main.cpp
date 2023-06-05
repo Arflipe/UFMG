@@ -17,9 +17,10 @@ int main(int argc, char const *argv[]) {
 
 	int numVertices = numPeople + numJobs;
 
-	Graph* g1 = new Graph(numVertices + 2, numPeople);
-	unordered_map<string, int> m;
+	Graph* g1 = new Graph(numVertices + 2, numPeople); // Criando o grafo
+	unordered_map<string, int> m; // Traduzir strings para inteiros
 
+	// Montando o grafo
 	numPeople = 0;
 	for(int i = 0; i < numQualifications; i++){
 		int p;
@@ -38,6 +39,7 @@ int main(int argc, char const *argv[]) {
 		g1->addAdj(m[person], m[job]);
 	}
 
+	// Executando o exato primeiro já que o guloso altera o grafo significativamente e o exato não, assim não é necessário fazer dois grafos
 	int exato = g1->FordFulk();
 	int guloso = g1->greedy();
 

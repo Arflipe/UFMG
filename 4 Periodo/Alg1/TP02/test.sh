@@ -15,4 +15,3 @@ time ./tp02 < test_cases/inputs/test_case10.txt
 time ./tp02 < test_cases/inputs/test_case11.txt
 time ./tp02 < test_cases/inputs/test_case12.txt
 time ./tp02 < test_cases/inputs/test_case13.txt
-time ./tp02 < test_cases/inputs/test_case14.txt

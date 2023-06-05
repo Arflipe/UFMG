@@ -5,11 +5,9 @@ Vertex::Vertex(){
 	this->visited = false;
 }
 
-void Vertex::addNewAdjacent(int vertexNum, int flow){
-	adjacent.push_back(make_pair(vertexNum, flow));
-	edges++;
-}
-
-void Vertex::changeFlow(int vertexNum, int adjNum, int flow){
-
+Vertex::~Vertex(){
+	list<Edge*>::iterator it = adjacent.begin();
+	for(; it != adjacent.end(); ++it){
+		delete (*it);
+	}
 }

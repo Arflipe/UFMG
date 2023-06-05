@@ -7,11 +7,8 @@
 #include <list>
 #include "vertex.hpp"
 
-using namespace std;
-
 class Graph{
 	private:
-	list<pair<list<pair<int,int>>::iterator, int>> bfsArr;
 	int jobPos;
 	int maxFlow;
 	vector<Vertex> adjList;
@@ -20,10 +17,8 @@ class Graph{
     Graph(int numVertices, int jobPos);
 	void addAdj(int vertex, int adjVertex);
 	int greedy();
-	int exact();
 	int FordFulk();
 	bool DFS(int vertex);
-	void changeFlow(int vertex, int adjacent, int flow);
 };
 
 #endif // GRAPH_HPP

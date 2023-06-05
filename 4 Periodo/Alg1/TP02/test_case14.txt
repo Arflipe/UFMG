@@ -1,7 +1,0 @@
-3 3 6
-Paulo CFO
-Paulo CTO
-Maria CEO
-Maria CFO
-Bruno CEO
-Bruno CFO

@@ -11,7 +11,7 @@
 			"program": "/home/flipe/UFMG/4 Periodo/Alg1/TP02/tp02",
 			"args": [
 				"<",
-				"/home/flipe/UFMG/4 Periodo/Alg1/TP02/test_cases/inputs/test_case14.txt",
+				"/home/flipe/UFMG/4 Periodo/Alg1/TP02/test_cases/inputs/test_case0.txt",
 			],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
