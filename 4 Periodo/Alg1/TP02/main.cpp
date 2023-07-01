@@ -39,9 +39,8 @@ int main(int argc, char const *argv[]) {
 		g1->addAdj(m[person], m[job]);
 	}
 
-	// Executando o exato primeiro já que o guloso altera o grafo significativamente e o exato não, assim não é necessário fazer dois grafos
-	int exato = g1->FordFulk();
 	int guloso = g1->greedy();
+	int exato = g1->FordFulk();
 
 	cout  << "Guloso: " << guloso << endl;
 	cout << "Exato: " << exato << endl;
