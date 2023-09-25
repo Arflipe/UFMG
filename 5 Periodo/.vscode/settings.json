@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"jupyter": "python",
+		"ostream": "cpp",
+		"iostream": "cpp"
+	}
+}
