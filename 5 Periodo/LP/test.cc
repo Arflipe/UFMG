@@ -2,17 +2,32 @@
 
 using namespace std;
 
-class Inc{
+
+template <class T> class auto_ptr {
+	private: 
+	T* ptr;
+	
 	public:
-		static int getIncrement(){
-			return 3;
-		}
-		
-		static int increment(int x){
-			return x + getIncrement();
-		}
+	explicit auto_ptr(T* p = 0) : ptr(p) { }
+	~auto_ptr() { delete ptr; }
+	T& operator*() { return *ptr; }
+	T* operator->() { return ptr; }
 };
 
-int main(){
-	cout << Inc::increment(10) << endl;
+void foo0() {
+	auto_ptr<string> p(new string("I did one P.O.F!\n"));
+	// p->print();
+}
+
+void foo1() {
+	try {
+		auto_ptr<string> p(new string("Oi!\n"));
+		throw 20;
+	} catch (int e) { cout << "Oops: " << e << "\n"; }
+}
+
+int main() {
+	foo0();
+	// foo1();
+	return 0;
 }
