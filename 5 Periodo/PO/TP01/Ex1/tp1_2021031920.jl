@@ -1,4 +1,4 @@
-#= 
+#=
 Variables:
 Xnm = if object n is in box m
 Ym = if box m is used
@@ -7,8 +7,8 @@ Objective function:
 minimize sum(Ym)
 
 Constraints:
-sum(Xnm) = 1 for all m
-sum(Xnm * Wn) <= C * Ym for all n
+sum(Xnm) = 1 for all n => each object must be in a box
+sum(Xnm * Wn) <= C * Ym for all m => the sum of the weights of the objects in box m must be less than or equal to the capacity of box m
 Xnm, Ym are binary
 
 Each box has a capacity of 20Kg, and the number of objects and weight of each object are given in the file passed as argument.

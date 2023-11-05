@@ -1,4 +1,4 @@
-#= 
+#=
 Variables:
 Xn = if vertex n is in the independent set
 

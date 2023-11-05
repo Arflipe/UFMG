@@ -1,4 +1,4 @@
-#= 
+#=
 Variables:
 Xn = how many units are produced in period n
 Yn = if positive, surplus in period n, if negative, backlog in period n
