@@ -70,5 +70,12 @@ end
 
 optimize!(model)
 
+# print the vertices in the induced subgraph
+for i in 1:data.numVertices
+	if value(x[i]) > 0
+		print(i, " ")
+	end
+end
+
 sol = objective_value(model)
 println("TP1 2021031920 = ", sol)
